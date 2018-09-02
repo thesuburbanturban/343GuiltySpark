@@ -1,10 +1,13 @@
 import discord
-import config 
+import os
+import sys
+sys.path.append(os.path.join(os.path.expanduser('~'), 'Documents', '343GuiltySpark'))
+from config import *
 from discord.ext import commands
 import asyncio
 from itertools import cycle
 
-TOKEN = 'config.api_key'
+
 
 client = commands.Bot(command_prefix = '.')
 
@@ -14,7 +17,7 @@ async def change_status():
 	await client.wait_until_ready()
 	msgs = cycle(status)
 
-	while not client.is_closed()
+	while not client.is_closed:
 		current_status = next(msgs)
 		await client.change_presence(game=discord.Game(name=current_status))
 		await asyncio.sleep(60*60)
@@ -96,6 +99,8 @@ async def shrug():
 	await client.say('¯\_(ツ)_/¯')
 
 client.loop.create_task(change_status())
+
+#defined in config.py
 client.run(TOKEN)
 
 
