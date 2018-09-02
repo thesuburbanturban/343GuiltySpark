@@ -1,7 +1,7 @@
 import discord
 import os
 import sys
-sys.path.append(os.path.join(os.path.expanduser('~'), 'Documents', '343GuiltySpark'))
+sys.path.append(os.getcwd())
 from config import *
 from discord.ext import commands
 import asyncio
