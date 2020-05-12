@@ -99,7 +99,7 @@ async def shrug():
 	await client.say('¯\_(ツ)_/¯')
 
 '''
-@bot.command()
+@client.command()
 async def playtime(ctx, time_played: int):
     if os.path.exists(f'{ctx.author.id}'):
         with open(f'{ctx.author.id}', 'r') as f:
