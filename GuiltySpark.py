@@ -98,6 +98,26 @@ async def unflip():
 async def shrug():
 	await client.say('¯\_(ツ)_/¯')
 
+'''
+@bot.command()
+async def playtime(ctx, time_played: int):
+    if os.path.exists(f'{ctx.author.id}'):
+        with open(f'{ctx.author.id}', 'r') as f:
+            user_dict = json.load(f)
+    else:
+        user_dict = {}
+    if user_dict.get('playtime', False) is False:
+        user_dict = {'playtime': {}}
+    now = dt.datetime.now()
+    key = f'{now.year}-{now.month}-{now.day}'
+    current_playtime = user_dict['playtime'].get(key, 0)
+    current_playtime += time_played
+    user_dict['playtime'][key] = current_playtime
+    with open(f'{ctx.author.id}', 'w') as f:
+        json.dump(user_dict, f)
+    await ctx.send(f"added {time_played} {ctx.author.mention}'s current_playtime. Total playtime is now {current_playtime}")
+'''
+
 client.loop.create_task(change_status())
 
 #defined in config.py
