@@ -107,7 +107,7 @@ async def playtime(ctx, time_played: int):
     else:
         user_dict = {}
     if user_dict.get('playtime', False) is False:
-        user_dict = {'playtime': {}}
+        user_dict = ['playtime']: {}
     now = dt.datetime.now()
     key = f'{now.year}-{now.month}-{now.day}'
     current_playtime = user_dict['playtime'].get(key, 0)
